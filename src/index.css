@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Tilt+Prism&display=swap');
+
+:root{
+    --dark_mode: #242424;
+    --blue-color: #0084ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.App {
+    background-color: #242424;
+}

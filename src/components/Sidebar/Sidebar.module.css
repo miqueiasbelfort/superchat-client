@@ -1,0 +1,42 @@
+.container{
+    width: 70px;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #0c0c0c;
+}
+
+.roomName{
+    color: #fff;
+    font-size: .9em;
+    margin-top: 20px;
+}
+.rooms {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    margin-top: 10px;
+    gap: 15px;
+    color: #fff;
+    font-size: .7em;
+    text-align: center;
+}
+.room {
+    cursor: pointer;
+    transition: .3s;
+}
+.room:hover {
+    filter: opacity(70%);
+}
+.room img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#golang {
+    background-color: aqua;
+}
