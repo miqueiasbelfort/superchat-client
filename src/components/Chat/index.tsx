@@ -9,6 +9,13 @@ import Emojis from "../Emojis";
 // context
 import { Context } from "../../context/message";
 
+interface SocketIData {
+  room: string,
+  author: string,
+  message: string,
+  time: string
+}
+
 const Chat: React.FC<any> = ({ socket }: any) => {
   const messageContext = useContext(Context);
 
@@ -32,7 +39,11 @@ const Chat: React.FC<any> = ({ socket }: any) => {
     //console.log(messageContext?.messageList)
   };
 
-  useEffect(() => {}, [socket, messageContext?.messageList]);
+  useEffect(() => {
+    socket.on('receive_message', (data: SocketIData) => {
+      messageContext?.setMessageList([...messageContext.messageList, data])
+    })
+  }, [socket, messageContext?.messageList]);
 
   return (
     <div className={Styles.container}>

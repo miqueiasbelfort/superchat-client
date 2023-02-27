@@ -16,11 +16,11 @@ import { messageListI } from './interfaces/interfaces'
 //Context
 import { Context } from './context/message'
 
-// Socket connection
-const socket = 'Hello World'//io("http://localhost:5000")
+const socket = io("http://localhost:5000")
 
 function App() {
 
+  
   const [messageList, setMessageList] = useState<messageListI[]>([])
   const [currentMessage, setCurrentMessage] = useState('')
   const [getUsername, setGetUsername] = useState('')
@@ -36,11 +36,14 @@ function App() {
       time: new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()
     }
 
+    socket.emit('send_message', messageData)
     setMessageList([...messageList, messageData])
 
   }
   const joinRoom = (room: string) => {
+    setMessageList([])
     setRoom(room)
+    socket.emit('join_room', room)
   }
   const createUsername = (name: string) => {
     const nameUser = localStorage.setItem("username", JSON.stringify(name))
