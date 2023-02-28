@@ -16,7 +16,7 @@ import { messageListI } from './interfaces/interfaces'
 //Context
 import { Context } from './context/message'
 
-const socket = io("http://localhost:5000")
+const socket = io("https://superchat-6dz5.onrender.com")
 
 function App() {
 
