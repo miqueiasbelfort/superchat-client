@@ -40,3 +40,16 @@
 #golang {
     background-color: aqua;
 }
+
+.logout{
+    margin-top: 20px;
+    color: #ff0000;
+    font-weight: bold;
+    font-size: .9em;
+    cursor: pointer;
+    transition: .3s;
+}
+.logout:hover {
+    color: #f0ffff;
+    border-bottom: 1px solid #ff0000;
+}

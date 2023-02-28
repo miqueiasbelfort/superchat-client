@@ -25,6 +25,10 @@ const Sidebar: React.FC = () => {
     messageContext?.joinRoom(room)
   }
 
+  const handleLogout = () => {
+    messageContext?.logout()
+  }
+
   return (
     <div className={Styles.container}>
         <span className={Styles.roomName}>Salas</span>
@@ -40,6 +44,8 @@ const Sidebar: React.FC = () => {
           }
 
         </ul>
+
+        <span onClick={handleLogout} className={Styles.logout}>Sair</span>
     </div>
   );
 }

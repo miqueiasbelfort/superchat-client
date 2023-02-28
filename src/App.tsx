@@ -20,29 +20,37 @@ const socket = io("http://localhost:5000")
 
 function App() {
 
-  
   const [messageList, setMessageList] = useState<messageListI[]>([])
   const [currentMessage, setCurrentMessage] = useState('')
   const [getUsername, setGetUsername] = useState('')
-  const [room, setRoom] = useState('')
+  const [NameRoom, setNameRoom] = useState('')
   const [showEmoji, setShowEmoji] = useState(false)
 
   const sendMessage = async () => {
 
     const messageData = {
-      room: room,
+      room: NameRoom,
       message: currentMessage,
       author: getUsername,
       time: new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()
     }
 
     socket.emit('send_message', messageData)
-    setMessageList([...messageList, messageData])
+
+    const newMessagesList = messageList.filter(item => {
+      if (item.room === NameRoom){
+        return item
+      }
+      return []
+    })
+
+    setMessageList([...newMessagesList, messageData])
 
   }
   const joinRoom = (room: string) => {
+    socket.emit("leave_room", NameRoom)
     setMessageList([])
-    setRoom(room)
+    setNameRoom(room)
     socket.emit('join_room', room)
   }
   const createUsername = (name: string) => {
@@ -52,6 +60,13 @@ function App() {
   const getEmoji = (emoji: string) => {
     setCurrentMessage(message => message + emoji)
     setShowEmoji(false)
+  }
+  const logout = () => {
+    socket.emit('leave_room', NameRoom)
+    setMessageList([])
+    setNameRoom('')
+    localStorage.removeItem('username')
+    setGetUsername('')
   }
 
   useEffect(() => {
@@ -66,7 +81,7 @@ function App() {
         sendMessage,
         joinRoom,
         username: getUsername,
-        room,
+        room: NameRoom,
         createUsername,
         getEmoji,
         messageList,
@@ -74,7 +89,8 @@ function App() {
         currentMessage,
         setCurrentMessage,
         showEmoji,
-        setShowEmoji
+        setShowEmoji,
+        logout
     }}>
       <div className='App'>
         <ToastContainer/>

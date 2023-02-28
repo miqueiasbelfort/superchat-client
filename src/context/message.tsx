@@ -13,7 +13,8 @@ interface messageI {
     messageList: messageListI[],
     currentMessage: string,
     setCurrentMessage: React.Dispatch<React.SetStateAction<string>>,
-    setMessageList: React.Dispatch<React.SetStateAction<messageListI[]>>
+    setMessageList: React.Dispatch<React.SetStateAction<messageListI[]>>,
+    logout: () => void
 }
 
 export const Context = createContext<messageI | null>(null)
