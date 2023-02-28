@@ -12,12 +12,12 @@ const Sidebar: React.FC = () => {
     {
       id: 1,
       name: 'Javascript',
-      img: '../../../src/assets/js.svg'
+      img: 'https://cdn2.iconfinder.com/data/icons/designer-skills/128/code-programming-javascript-software-develop-command-language-256.png'
     },
     {
       id: 2,
       name: 'Golang',
-      img: '../../../src/assets/golang.png'
+      img: 'https://www.nicepng.com/png/detail/264-2641184_111-kb-png-golang-logo.png'
     }
   ])
 
