@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
   ])
 
   const handleSelectRoom = async (room: string) => {
-    await axios.post('https://superchat-6dz5.onrender.com', {
+    await axios.post('https://superchat-6dz5.onrender.com/active', {
       room,
       username: messageContext?.username
     }).then(res => {
