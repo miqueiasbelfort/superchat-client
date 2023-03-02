@@ -3,6 +3,8 @@
 * Link para o repositório do server(backend): https://github.com/miqueiasbelfort/superchat-server
 * Acesse: https://superchat-react-ts.netlify.app/
 
+![image](https://user-images.githubusercontent.com/79981066/222504987-60e423ad-42ea-4c9b-bee5-bfcc8d946fe3.png)
+
 ## Como instalar?
 * Node na versão 18.14.2;
 * Faça o clone para sua maquina com o git `git clone https://github.com/miqueiasbelfort/superchat-client`;
