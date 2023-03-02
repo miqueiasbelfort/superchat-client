@@ -14,7 +14,9 @@ interface messageI {
     currentMessage: string,
     setCurrentMessage: React.Dispatch<React.SetStateAction<string>>,
     setMessageList: React.Dispatch<React.SetStateAction<messageListI[]>>,
-    logout: () => void
+    logout: () => void,
+    loading: boolean,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const Context = createContext<messageI | null>(null)

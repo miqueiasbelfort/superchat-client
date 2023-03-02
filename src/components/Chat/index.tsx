@@ -45,6 +45,15 @@ const Chat: React.FC<any> = ({ socket }: any) => {
     })
   }, [socket, messageContext?.messageList]);
 
+
+  if (messageContext?.loading){
+    return (
+      <div>
+        <h1>Carregando</h1>
+      </div>
+    )
+  }
+
   return (
     <div className={Styles.container}>
       <div className={Styles.header}>

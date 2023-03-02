@@ -24,7 +24,9 @@ function App() {
   const [currentMessage, setCurrentMessage] = useState('')
   const [getUsername, setGetUsername] = useState('')
   const [NameRoom, setNameRoom] = useState('')
-  const [showEmoji, setShowEmoji] = useState(false)
+  const [showEmoji, setShowEmoji] = useState(true)
+
+  const [loading, setLoading] = useState(false)
 
   const sendMessage = async () => {
 
@@ -90,7 +92,9 @@ function App() {
         setCurrentMessage,
         showEmoji,
         setShowEmoji,
-        logout
+        logout,
+        loading,
+        setLoading
     }}>
       <div className='App'>
         <ToastContainer/>

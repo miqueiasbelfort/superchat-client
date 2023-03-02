@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import Styles from './Sidebar.module.css'
+import axios from 'axios';
 
 // context
 import { Context } from '../../context/message';
@@ -21,8 +22,17 @@ const Sidebar: React.FC = () => {
     }
   ])
 
-  const handleSelectRoom = (room: string) => {
-    messageContext?.joinRoom(room)
+  const handleSelectRoom = async (room: string) => {
+    await axios.post('https://superchat-6dz5.onrender.com', {
+      room,
+      username: messageContext?.username
+    }).then(res => {
+      messageContext?.joinRoom(room)
+      messageContext?.setLoading(false)
+      console.log(res)
+    }).catch(err => {
+      console.error(err)
+    })
   }
 
   const handleLogout = () => {
